@@ -1,0 +1,23 @@
+<h1>Students Notifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notis.each do |noti| %>
+      <tr>
+        <td><%= noti.teacher_id %></td>
+        <td><%= noti.title %></td>
+        <td><%= noti.content %></td>
+        <td><%= link_to 'Show', students_noti_path(noti) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

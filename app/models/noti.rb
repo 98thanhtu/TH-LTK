@@ -1,0 +1,2 @@
+class Noti < ApplicationRecord
+end
