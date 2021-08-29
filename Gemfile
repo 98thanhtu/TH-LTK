@@ -60,3 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'rails_admin'
 gem 'pry'
+gem 'bootstrap'
+gem 'bootstrap4-kaminari-views'
+gem 'will_paginate'
+gem 'file_validators'

@@ -1,10 +1,10 @@
-<%= form_for ([:teachers, @noti]) do |form| %>
-  <% if noti.errors.any? %>
+<%= form_for ([:teachers, @review]) do |form| %>
+  <% if review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(noti.errors.count, "error") %> prohibited this noti from being saved:</h2>
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
       <ul>
-        <% noti.errors.each do |error| %>
+        <% review.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -15,8 +15,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :course_id %>
-    <%= form.collection_select :course_id, Course.order(:name), :id, :full_class_name, style:"width:100%"%>
+    <%= form.label :student_id %>
+    <%= form.collection_select :student_id, Student.order(:id), style:"width:100%"%>
   </div>
 
   <div class="field">

@@ -13,7 +13,7 @@
   <tbody>
     <% @notis.each do |noti| %>
       <tr>
-        <td><%= noti.course_id %></td>
+        <td><%= noti.course.full_class_name %></td>
         <td><%= noti.title %></td>
         <td><%= noti.content %></td>
         <td><%= noti.is_read %></td>
