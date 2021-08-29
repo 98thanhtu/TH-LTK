@@ -1,0 +1,38 @@
+<h1>Editing Teachers Review</h1>
+
+  <%= form_for ([:teachers, @review]) do |form| %>
+
+
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% @review.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.collection_select :student_id, Student.order(:id), style:"width:100%"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<td><%= link_to 'Show', teachers_review_path(@review) %></td> |
+<%= link_to 'Back', teachers_reviews_path %>
