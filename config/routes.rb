@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
+  get 'pages/contact'
   namespace :students do
     get 'reviews/show'
     get 'reviews/index'
