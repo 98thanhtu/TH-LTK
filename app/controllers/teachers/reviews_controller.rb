@@ -2,7 +2,8 @@ class Teachers::ReviewsController < ApplicationController
     before_action :authenticate_teacher!, only: %w[ create edit new update destroy ]
 
     def index
-        @reviews = Review.all
+        current_teacher = warden.authenticate(scope: :teacher)
+        @reviews = Review.where(teacher_id: current_teacher.id)
     end
 
     def show

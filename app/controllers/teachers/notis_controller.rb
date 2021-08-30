@@ -2,7 +2,8 @@ class Teachers::NotisController < ApplicationController
     before_action :authenticate_teacher!, only: %w[ create edit new update destroy ]
 
     def index
-        @notis = Noti.all
+        current_teacher = warden.authenticate(scope: :teacher)
+        @notis = Noti.where(teacher_id: current_teacher.id)
     end
 
     def show

@@ -1,8 +1,7 @@
 class Students::ReviewsController < ApplicationController
   before_action :authenticate_student!, only: %w[index show]
 
-  def index
-    # binding.pry
+  def index    
     current_student = warden.authenticate(scope: :student)
     @reviews = Review.where(student_id: current_student.id)
   end
