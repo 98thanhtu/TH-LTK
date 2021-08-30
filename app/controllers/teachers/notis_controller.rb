@@ -50,7 +50,7 @@ class Teachers::NotisController < ApplicationController
     private
 
     def noti_params
-        params.require(:noti).permit(:teacher_id, :title, :content, :course_id, :is_read)
+        params.require(:noti).permit(:teacher_id, :title, :content, :is_read)
     end
 
 end
