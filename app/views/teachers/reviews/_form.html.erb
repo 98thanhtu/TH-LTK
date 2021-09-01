@@ -16,7 +16,7 @@
 
   <div class="form-group">
     <%= form.label :student_id %>
-    <%= form.collection_select :student_id, Student.order(:name), :id, :name, style:"width:100%"%>
+    <%= form.collection_select :student_id, Student.order(:name), :id, :name %>
   </div>
 
   <div class="field">

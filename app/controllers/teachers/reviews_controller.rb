@@ -51,7 +51,7 @@ class Teachers::ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:teacher_id, :title, :content, :students_id)
+        params.require(:review).permit(:teacher_id, :title, :content, :student_id)
     end
 
 end
