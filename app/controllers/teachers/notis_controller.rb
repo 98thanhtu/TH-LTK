@@ -1,5 +1,5 @@
 class Teachers::NotisController < ApplicationController
-    before_action :authenticate_teacher!, only: %w[ create edit new update destroy ]
+    before_action :authenticate_teacher!
 
     def index
         current_teacher = warden.authenticate(scope: :teacher)

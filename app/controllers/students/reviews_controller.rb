@@ -1,5 +1,5 @@
 class Students::ReviewsController < ApplicationController
-  before_action :authenticate_student!, only: %w[index show]
+  before_action :authenticate_student!
 
   def index    
     current_student = warden.authenticate(scope: :student)
