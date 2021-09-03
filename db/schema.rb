@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_141937) do
     t.integer "good_mark"
     t.integer "bad_mark"
     t.integer "teacher_id"
+    t.text "description"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_141937) do
     t.string "avatar"
     t.string "class_name"
     t.string "school_year"
+    t.text "description"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end

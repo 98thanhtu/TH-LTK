@@ -2,12 +2,12 @@ class Teachers::NotisController < ApplicationController
     before_action :authenticate_teacher!
 
     def index
-        current_teacher = warden.authenticate(scope: :teacher)
-        @notis = Noti.where(teacher_id: current_teacher.id)
+        @notis = current_teacher.notis
     end
 
     def show
-        @noti = Noti.find(params[:id])
+        notis = current_teacher.notis
+        @noti = notis.find(params[:id])
     end
 
     def new
@@ -15,7 +15,8 @@ class Teachers::NotisController < ApplicationController
     end
 
     def edit
-        @noti = Noti.find(params[:id])
+        notis = current_teacher.notis
+        @noti = notis.find(params[:id])
     end
 
     def create
@@ -30,7 +31,8 @@ class Teachers::NotisController < ApplicationController
     end
 
     def update
-        @noti = Noti.find(params[:id])
+        notis = current_teacher.notis
+        @noti = notis.find(params[:id])
         respond_to do |format|
             if @noti.update(noti_params)
                 format.html { redirect_to teachers_noti_path(@noti), notice: "Cập nhật thông báo thành công." }
@@ -41,7 +43,8 @@ class Teachers::NotisController < ApplicationController
     end
 
     def destroy
-        @noti = Noti.find(params[:id])
+        notis = current_teacher.notis
+        @noti = notis.find(params[:id])
         @noti.destroy
         respond_to do |format|
             format.html { redirect_to teachers_notis_url, noti: "Xóa thông báo thành công." }
@@ -53,5 +56,4 @@ class Teachers::NotisController < ApplicationController
     def noti_params
         params.require(:noti).permit(:teacher_id, :title, :content, :is_read)
     end
-
 end

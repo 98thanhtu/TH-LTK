@@ -2,12 +2,12 @@ class Teachers::ReviewsController < ApplicationController
     before_action :authenticate_teacher!
 
     def index
-        current_teacher = warden.authenticate(scope: :teacher)
-        @reviews = Review.where(teacher_id: current_teacher.id)
+        @reviews = Review.where( teacher_id: current_teacher )
     end
 
     def show
-        @review = Review.find(params[:id])
+        reviews = Review.where( teacher_id: current_teacher )
+        @review = reviews.find(params[:id])
     end
 
     def new
@@ -15,7 +15,8 @@ class Teachers::ReviewsController < ApplicationController
     end
 
     def edit
-        @review = Review.find(params[:id])
+        reviews = Review.where( teacher_id: current_teacher )
+        @review = reviews.find(params[:id])
     end
 
     def create
@@ -30,7 +31,8 @@ class Teachers::ReviewsController < ApplicationController
     end
 
     def update
-        @review = Review.find(params[:id])
+        reviews = Review.where( teacher_id: current_teacher )
+        @review = reviews.find(params[:id])
         respond_to do |format|
             if @review.update(review_params)
                 format.html { redirect_to teachers_review_path(@review), notice: "Cập nhật thông báo thành công." }
@@ -53,5 +55,4 @@ class Teachers::ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:teacher_id, :title, :content, :student_id)
     end
-
 end

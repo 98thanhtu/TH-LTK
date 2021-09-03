@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="text-center">Đổi mật khẩu</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+    <label>Mật Khẩu hiện tại</label>
+      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", id:"exampleFormControlInput1" %>
+    </div>
+
+    <div class="field">
+      <label>Mật khẩu mới</label>
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"exampleFormControlInput1" %>
+      <% if @minimum_password_length %>
+        <em> Tối thiểu <%= @minimum_password_length %> kí tự</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <label>Nhập lại mật khẩu mới</label>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"exampleFormControlInput1" %>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-primary" style="font-size:14px">Đổi mật khẩu</button>
+    </div>
+  <% end %>
+
+  <%= link_to "Trở về", :back %>
+</div>

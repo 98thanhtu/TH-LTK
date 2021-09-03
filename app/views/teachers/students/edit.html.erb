@@ -1,0 +1,33 @@
+<h1>Editing Teachers Notification</h1>
+
+  <%= form_for ([:teachers, @student]) do |form| %>
+
+
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% @student.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :good_mark %>
+    <%= form.number_field :good_mark %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bad_mark %>
+    <%= form.number_field :bad_mark %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<td><%= link_to 'Show', teachers_student_path(@student) %></td> |
+<%= link_to 'Back', teachers_students_path %>

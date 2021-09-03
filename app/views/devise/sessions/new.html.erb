@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Đăng Nhập</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"exampleFormControlInput1" %>
+    </div>
+
+    <div class="field">
+      <label>Mật Khâu</label>
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id:"exampleFormControlInput1" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+        <div class="field">       
+          <%= f.check_box :remember_me %> Lưu mật khẩu
+        </div>
+      <% end %>
+
+    <div class="actions">
+        <button type="submit" class="btn btn-primary" style="font-size:14px">Đăng Nhập</button>
+    </div>
+  <% end %>
+</div>

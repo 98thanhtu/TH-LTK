@@ -1,12 +1,12 @@
 class Students::ReviewsController < ApplicationController
   before_action :authenticate_student!
 
-  def index    
-    current_student = warden.authenticate(scope: :student)
-    @reviews = Review.where(student_id: current_student.id)
+  def index
+    @reviews = current_student.reviews
   end
 
   def show
-    @review = Review.find(params[:id])
+    reviews = current_student.reviews
+    @review = reviews.find(params[:id])
   end
 end

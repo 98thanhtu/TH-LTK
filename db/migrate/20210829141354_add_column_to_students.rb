@@ -8,5 +8,6 @@ class AddColumnToStudents < ActiveRecord::Migration[6.1]
     add_column :students, :good_mark, :integer
     add_column :students, :bad_mark, :integer
     add_column :students, :teacher_id, :integer
+    add_column :students, :description, :text
   end
 end

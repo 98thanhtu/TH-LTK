@@ -10,9 +10,30 @@
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
-  <body>
+  <body style="margin:0px">
+  <% if teacher_signed_in? %>
+    <%= render 'layouts/header_teacher' %>
+  <% else %>
+    <% if student_signed_in? %>
+      <%= render 'layouts/header_student' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
+  <% end %>
+
+  <% if notice %>
+    <p class="alert alert-success text-center"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger text-center"><%= alert %></p>
+  <% end %>
+
+  <div>
     <%= yield %>
+  </div>
+  <%= render 'layouts/footer' %>
   </body>
 </html>

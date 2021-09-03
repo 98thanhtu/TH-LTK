@@ -1,0 +1,24 @@
+<h1>Danh sách học sinh</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Good Mark</th>
+      <th>Bad Mark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.good_mark %></td>
+        <td><%= student.bad_mark %></td>
+        <td><%= link_to 'Show', teachers_student_path(student) %></td>
+        <td><%= link_to 'Edit', edit_teachers_student_path(student) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
