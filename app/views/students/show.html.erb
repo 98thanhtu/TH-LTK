@@ -1,33 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tên:</strong>
-  <%= @student.name %>
-</p>
+  <p>
+    <strong>Ảnh đại diện:</strong>
+    <%= image_tag(@student.avatar_url, width: 600) if @student.avatar.present? %>
+  </p>
 
-<p>
-  <strong>SĐT:</strong>
-  <%= @student.phone %>
-</p>
+  <p>
+    <strong>Tên:</strong>
+    <%= @student.name %>
+  </p>
 
-<p>
-  <strong>Địa chỉ:</strong>
-  <%= @student.address %>
-</p>
+  <p>
+    <strong>SĐT:</strong>
+    <%= @student.phone %>
+  </p>
 
-<p>
-  <strong>Giới tính:</strong>
-  <%= @student.gender %>
-</p>
+  <p>
+    <strong>Địa chỉ:</strong>
+    <%= @student.address %>
+  </p>
 
-<p>
-  <strong>Điểm tốt:</strong>
-  <%= @student.good_mark %>
-</p>
+  <p>
+    <strong>Giới tính:</strong>
+    <%= @student.gender %>
+  </p>
 
-<p>
-  <strong>Điểm xấu:</strong>
-  <%= @student.bad_mark %>
-</p>
+  <p>
+    <strong>Điểm tốt:</strong>
+    <%= @student.good_mark %>
+  </p>
 
-<%= link_to 'Back', root_path %>
+  <p>
+    <strong>Điểm xấu:</strong>
+    <%= @student.bad_mark %>
+  </p>
+
+  <%= link_to 'Back', root_path %>
+</div>

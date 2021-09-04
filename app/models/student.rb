@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
+  mount_uploader :avatar, PictureUploader
   belongs_to :teacher
   has_many :reviews
 

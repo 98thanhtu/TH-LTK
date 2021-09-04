@@ -64,3 +64,4 @@ gem 'bootstrap4-kaminari-views'
 gem 'file_validators'
 gem "tailwindcss-rails", "~> 0.4.3"
 gem 'faker'
+gem 'carrierwave'
