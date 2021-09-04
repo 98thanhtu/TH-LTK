@@ -14,8 +14,9 @@ class Teachers::StudentsController < ApplicationController
     end
 
     def update
-        # binding.pry
         @student = Student.find(params[:id])
+        @student.update(student_params)
+        @student.avg_mark = @student.good_mark * 2 - @student.bad_mark
         respond_to do |format|
             if @student.update(student_params)
                 format.html { redirect_to teachers_student_path(@student), notice: "Cập nhật điểm thành công." }
@@ -26,6 +27,6 @@ class Teachers::StudentsController < ApplicationController
     end
 
     def student_params
-        params.require(:student).permit(:good_mark, :bad_mark)
+        params.require(:student).permit(:good_mark, :bad_mark, :avg_mark)
     end
 end

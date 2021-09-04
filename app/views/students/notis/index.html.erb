@@ -5,7 +5,7 @@
     <tr>
       <th>Teacher</th>
       <th>Title</th>
-      <th>Content</th>
+      <th>Time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
       <tr>
         <td><%= noti.teacher_id %></td>
         <td><%= noti.title %></td>
-        <td><%= noti.content %></td>
+        <td><%= noti.created_at.strftime("%d-%m-%Y") %></td>
         <td><%= link_to 'Show', students_noti_path(noti) %></td>
       </tr>
     <% end %>

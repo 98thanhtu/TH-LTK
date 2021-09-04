@@ -1,0 +1,28 @@
+<div class="container">
+  <% provide(:title, "Bảng xếp hạng") %>
+  <br>
+  <h1 class = "text-center">Bảng xếp hạng</h1>
+  <br>
+  <table class="table">
+    <thead style="font-size:20px">
+      <tr>
+        <th width = "40%">Họ tên</th>
+        <th class="text-center" width = "20%">Điểm trung bình</th>
+        <th class="text-center" width = "20%">Điểm cộng</th>
+        <th class="text-center" width = "20%">Điểm trừ</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td style="font-size:18px; color:blue"><%= student.name %></td>
+          <td class="text-center" style="font-size:15px"><%= student.avg_mark %></td>
+          <td class="text-center" style="font-size:15px"><%= student.good_mark %></td>
+          <td class="text-center" style="font-size:15px"><%= student.bad_mark %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

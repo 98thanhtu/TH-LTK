@@ -4,18 +4,20 @@ Rails.application.routes.draw do
   # get "/pages/:page", to: "pages#show"
 
   namespace :students do
+    resources :rankings, only: :index
     resources :notis, only: %w[index show]
     resources :reviews, only: %w[index show]
   end
-
+  
   namespace :teachers do
     resources :notis
     resources :reviews
     resources :students
+    resources :rankings, only: %w[index updates]
   end
 
-  resource :teacher, only: [:edit, :update, :show]
-  resource :student, only: [:edit, :update, :show]
+  resource :teacher, only: %w[edit update show]
+  resource :student, only: %w[edit update show]
   
   devise_for :admins
   devise_for :teachers

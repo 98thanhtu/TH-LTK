@@ -55,8 +55,9 @@ ActiveRecord::Schema.define(version: 2021_08_30_141937) do
     t.text "address"
     t.string "gender"
     t.string "avatar"
-    t.integer "good_mark"
-    t.integer "bad_mark"
+    t.integer "good_mark", default: 0
+    t.integer "bad_mark", default: 0
+    t.integer "avg_mark", default: 0
     t.integer "teacher_id"
     t.text "description"
     t.index ["email"], name: "index_students_on_email", unique: true
