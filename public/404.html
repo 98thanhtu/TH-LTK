@@ -1,33 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Oops!</title>
+  <title>Không tồn tại (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+  .rails-default-error-page {
+    background-color: #EFEFEF;
+    color: #2E2F30;
+    text-align: center;
+    font-family: arial, sans-serif;
+    margin: 0;
+  }
+
+  .rails-default-error-page div.dialog {
+    width: 95%;
+    max-width: 33em;
+    margin: 4em auto 0;
+  }
+
+  .rails-default-error-page div.dialog > div {
+    border: 1px solid #CCC;
+    border-right-color: #999;
+    border-left-color: #999;
+    border-bottom-color: #BBB;
+    border-top: #B00100 solid 4px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    background-color: white;
+    padding: 7px 12% 0;
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }
+
+  .rails-default-error-page h1 {
+    font-size: 100%;
+    color: #730E15;
+    line-height: 1.5em;
+  }
+
+  .rails-default-error-page div.dialog > a {
+    margin: 0 0 1em;
+    padding: 1em;
+    background-color: #F7F7F7;
+    border: 1px solid #CCC;
+    border-right-color: #999;
+    border-left-color: #999;
+    border-bottom-color: #999;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-color: #DADADA;
+    color: #666;
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }
+  </style>
 </head>
 
 <body class="rails-default-error-page">
   <div class="dialog">
-    <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-xl mx-auto">
-          <div class="py-12 px-6 bg-white rounded shadow">
-            <div class="text-center">
-              <span class="mb-6 text-4xl text-green-600 font-bold">Whoops!</span>
-              <h3 class="mb-2 text-4xl font-bold">Có gì đó không đúng!</h3>
-              <p class="mb-8 text-gray-400">Xin lỗi, trang không tồn tại</p>
-              <div>
-                <a class="w-full lg:w-auto mb-2 lg:mb-0 lg:mr-4 inline-block py-2 px-6 rounded-l-xl rounded-t-xl font-bold leading-loose text-gray-50 bg-green-600 hover:bg-green-700" href="/">
-                  Trở về trang chủ
-                </a>
-                <a class="w-full lg:w-auto inline-block py-2 px-6 rounded-l-xl rounded-t-xl font-bold leading-loose bg-white hover:bg-gray-50" href="#">
-                  Thử lại
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div>
+      <h1>Trang mà bạn truy cập không tồn tại.</h1>
+    </div>
+    <a href="/">Về trang chủ.</a>
   </div>
 </body>
 </html>

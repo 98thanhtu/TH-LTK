@@ -1,24 +1,32 @@
-<h1>Danh sách học sinh</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Good Mark</th>
-      <th>Bad Mark</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.name %></td>
-        <td><%= student.good_mark %></td>
-        <td><%= student.bad_mark %></td>
-        <td><%= link_to 'Show', teachers_student_path(student) %></td>
-        <td><%= link_to 'Edit', edit_teachers_student_path(student) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<section>
+  <div class="py-20 bg-gray-200 radius-for-skewed">
+    <div class="container mx-auto px-4">
+      <div class="max-w-xl mx-auto mb-10 text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold font-heading">Danh sách học sinh</h2>
+      </div>
+      <div class="flex flex-wrap">
+      <% @students.each do |student| %>
+        <div class="mb-6 w-full md:w-1/2 lg:w-1/3 px-3">
+          <div class="py-24 bg-white rounded shadow text-center">
+            <img class="mx-auto mb-8 w-24 h-24 rounded-full object-cover" src="https://images.unsplash.com/photo-1580852300654-03c803a14e24?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="">
+            <h4 class="mb-2 text-2xl font-bold font-heading"><%= student.name %></h4>
+            <br>
+            <p class="text-gray-500"><%= link_to 'Xem chi tiết', teachers_student_path(student) %></p>
+            <p class="text-gray-500"><%= link_to 'Cập nhật', edit_teachers_student_path(student) %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="skew skew-bottom mr-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
+    </svg>
+  </div>
+  <div class="skew skew-bottom ml-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
+    </svg>
+  </div>
+</section>
