@@ -14,6 +14,7 @@ class Teachers::StudentsController < ApplicationController
     end
 
     def update
+        # binding.pry
         @student = Student.find(params[:id])
         respond_to do |format|
             if @student.update(student_params)

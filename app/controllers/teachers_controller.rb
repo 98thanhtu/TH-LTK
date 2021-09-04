@@ -13,6 +13,10 @@ class TeachersController < ApplicationController
         render :edit
       end
     end
+
+    def show
+      @teacher = current_teacher
+    end
   
     private
     

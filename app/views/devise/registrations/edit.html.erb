@@ -1,35 +1,40 @@
-<div class="container">
-  <h2 class="text-center">Đổi mật khẩu</h2>
+<section class="py-10 bg-gray-800">
+  <div class="container mx-auto px-4">
+    <div class="max-w-xl mx-auto">
+      <div class="mb-6 lg:mb-10 p-6 lg:p-12 bg-gray-900 shadow-md rounded">
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-pink-600 text-center">Đổi mật khẩu</h3>
+        </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+          <div class="field text-pink-500">
+          <label>Mật Khẩu hiện tại</label>
+            <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", id:"exampleFormControlInput1" %>
+          </div>
 
-    <div class="field">
-    <label>Mật Khẩu hiện tại</label>
-      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", id:"exampleFormControlInput1" %>
+          <div class="field text-pink-500">
+            <label>Mật khẩu mới</label>
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"exampleFormControlInput1" %>
+            <% if @minimum_password_length %>
+              <em class="text-xs text-pink-600"> Tối thiểu <%= @minimum_password_length %> kí tự</em>
+            <% end %>
+          </div>
+
+          <div class="field text-pink-500">
+            <label>Nhập lại mật khẩu mới</label>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"exampleFormControlInput1" %>
+          </div>
+          <br>
+          <div class="actions">
+          <button type="submit" class="mb-4 w-full py-4 bg-pink-600 hover:bg-pink-700 rounded text-sm font-bold text-gray-50">Đổi mật khẩu</button>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <div class="field">
-      <label>Mật khẩu mới</label>
-      <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"exampleFormControlInput1" %>
-      <% if @minimum_password_length %>
-        <em> Tối thiểu <%= @minimum_password_length %> kí tự</em>
-      <% end %>
-    </div>
-
-    <div class="field">
-      <label>Nhập lại mật khẩu mới</label>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"exampleFormControlInput1" %>
-    </div>
-
-    <div class="actions">
-      <button type="submit" class="btn btn-primary" style="font-size:14px">Đổi mật khẩu</button>
-    </div>
-  <% end %>
-
-  <%= link_to "Trở về", :back %>
-</div>
+  </div>
+</section>

@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     resources :students
   end
 
-  resource :teacher, only: [:edit, :update]
-  resource :student, only: [:edit, :update]
+  resource :teacher, only: [:edit, :update, :show]
+  resource :student, only: [:edit, :update, :show]
   
   devise_for :admins
   devise_for :teachers
