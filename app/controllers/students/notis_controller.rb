@@ -3,7 +3,7 @@ class Students::NotisController < ApplicationController
 
   def index
     current_class_id = current_student.teacher_id
-    @notis = Noti.where(teacher_id: current_class_id)
+    @notis = Noti.where(teacher_id: current_class_id).order(created_at: :DESC).page(params[:page]).per(20)
   end
 
   def show

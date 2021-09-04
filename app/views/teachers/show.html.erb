@@ -1,23 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Tên:</strong>
-  <%= @teacher.name %>
-</p>
-
-<p>
-  <strong>SĐT:</strong>
-  <%= @teacher.phone %>
-</p>
-
-<p>
-  <strong>Địa chỉ:</strong>
-  <%= @teacher.address %>
-</p>
-
-<p>
-  <strong>Giới tính:</strong>
-  <%= @teacher.gender %>
-</p>
-
-<%= link_to 'Back', root_path %>
+<section>
+  <div class="py-20 bg-gray-900 radius-for-skewed" style="margin-bottom:-100px">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center -mx-3">        
+        <div class="w-full px-3">
+          <div class="flex p-6 flex-wrap bg-white rounded-lg shadow">
+            <div class="w-full lg:w-1/2 lg:pr-3">
+              <span class="h-80 lg:h-auto w-full lg:w-auto object-cover rounded-lg">
+                <%= image_tag(@teacher.avatar_url, width: 600) if @teacher.avatar.present? %>
+              </span>
+            </div>
+            <div class="w-full lg:w-1/2 lg:pl-3 lg:mt-6 order-first lg:order-last">
+              <h4 class="text-md font-bold font-heading"><%= @teacher.name %></h4>
+              <br>
+              <p class="mb-6 text-base text-gray-500 leading-loose">Số điện thoại: <%= @teacher.phone %></p>
+              <p class="mb-6 text-base text-gray-500 leading-loose">Địa chỉ: <%= @teacher.address %></p>
+              <p class="mb-6 text-base text-gray-500 leading-loose">Giới tính: <%= @teacher.gender %></p>
+              <p class="mb-6 text-base text-gray-500 leading-loose"><%= @teacher.description %></p>
+            </div>
+          <p>
+            <%= link_to 'Trở về', root_path %>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

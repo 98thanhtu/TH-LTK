@@ -2,7 +2,7 @@ class Teachers::NotisController < ApplicationController
     before_action :authenticate_teacher!
 
     def index
-        @notis = current_teacher.notis
+        @notis = current_teacher.notis.order(created_at: :DESC).page(params[:page]).per(20)
     end
 
     def show

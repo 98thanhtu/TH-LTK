@@ -1,24 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Teacher:</strong>
-  <%= @review.teacher_id %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @review.student_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @review.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @review.content %>
-</p>
-
-<%= link_to 'Edit', edit_teachers_review_path(@review) %> |
-<%= link_to 'Back', teachers_reviews_path %>
+<section style="margin-bottom:-100px">
+  <div class="py-20 bg-gray-900 radius-for-skewed">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 max-w-xl mx-auto text-center">
+        <h2 class="text-5xl font-bold text-white">Chi tiết báo cáo</h2>
+        <br>
+      </div>
+        <h3 class="text-4xl font-bold text-white"><%= @review.title %></h3>
+        <p class="text-gray-500">Ngày tạo: <%= @review.created_at.strftime("%d-%m-%Y") %></p>
+        <p class="text-gray-500">Học sinh: <%= @review.student.name %></p>
+        <p class="text-3xl font-bold text-white">
+          <%= @review.content %>
+        </p>
+        <br>
+        <button class="btn btn-success"><%= link_to 'Sửa', edit_teachers_review_path(@review), style:"color:white" %></button>
+        <button class="btn btn-danger"><%= link_to 'Trở về', teachers_reviews_path, style:"color:white" %></button>
+    </div>
+  </div>
+</section>

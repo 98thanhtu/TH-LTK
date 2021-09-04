@@ -2,7 +2,7 @@ class Students::ReviewsController < ApplicationController
   before_action :authenticate_student!
 
   def index
-    @reviews = current_student.reviews
+    @reviews = current_student.reviews.order(created_at: :DESC).page(params[:page]).per(20)
   end
 
   def show

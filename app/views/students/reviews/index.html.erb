@@ -1,27 +1,31 @@
-<div class="container">
-  <h1>Students Reviews</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Teacher</th>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Time</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @reviews.each do |review| %>
-        <tr>
-          <td><%= review.teacher_id %></td>
-          <td><%= review.title %></td>
-          <td><%= review.content %></td>
-          <td><%= review.created_at.strftime("%d-%m-%Y") %></td>
-          <td><%= link_to 'Xem ch tiết', students_review_path(review) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<section style="margin-bottom:-100px">
+  <div class="py-20 bg-gray-900 radius-for-skewed">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 max-w-xl mx-auto text-center">
+        <h2 class="text-5xl font-bold text-white">Báo cáo kết quả học tập</h2>
+      </div>
+      <div class="flex flex-wrap -mx-4 -mb-8">
+        <% @reviews.each do |review| %>
+          <div class="w-full lg:w-1/2 px-4 mb-8">
+            <div class="h-full p-8 bg-white rounded shadow">
+              <div class="mb-6 flex items-start">
+                <span class="mr-4 inline-block p-3 rounded-full bg-green-600">
+                  <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                  </svg>
+                </span>
+                <h3 class="text-xl font-bold"><%= review.title %></h3>
+              </div>
+              <p class="text-gray-400">Ngày tạo: <%= review.created_at.strftime("%d-%m-%Y") %></p>
+              <p class="text-gray-400">Người tạo: <%= review.teacher.name %></p>
+              <p><%= link_to 'Xem chi tiết', students_review_path(review) %></p>
+            </div>
+          </div>
+        <% end %>
+        <div style="margin: 0 auto">
+          <%= paginate @reviews, theme: 'twitter-bootstrap-4' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

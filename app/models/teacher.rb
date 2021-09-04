@@ -1,4 +1,5 @@
 class Teacher < ApplicationRecord
+  mount_uploader :avatar, PictureUploader
   has_many :notis
   has_many :students
   # Include default devise modules. Others available are:

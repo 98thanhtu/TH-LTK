@@ -65,3 +65,5 @@ gem 'file_validators'
 gem "tailwindcss-rails", "~> 0.4.3"
 gem 'faker'
 gem 'carrierwave'
+gem 'kaminari'
+gem 'ransack'

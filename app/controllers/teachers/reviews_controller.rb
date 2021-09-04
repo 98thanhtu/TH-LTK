@@ -3,6 +3,7 @@ class Teachers::ReviewsController < ApplicationController
 
     def index
         @reviews = Review.where( teacher_id: current_teacher )
+        @reviews = @reviews.order(created_at: :DESC).page(params[:page]).per(20)
     end
 
     def show
