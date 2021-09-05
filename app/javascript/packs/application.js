@@ -11,20 +11,3 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-function validateFiles(inputFile) {
-    var extErrorMessage = "File bạn muốn tải lên không đúng định dạng!";
-    var allowedExtension = ["jpg", "jpeg", "png", "gif"];
-  
-    var extName;
-    var extError = false;
-  
-    $.each(inputFile.files, function() {
-      extName = this.name.split('.').pop();
-      if ($.inArray(extName, allowedExtension) == -1) {extError=true;};
-    });
-    if (extError) {
-      window.alert(extErrorMessage);
-      $(inputFile).val('');
-    };
-  }
