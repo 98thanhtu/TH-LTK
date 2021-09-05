@@ -8,22 +8,15 @@
 
 Admin.create!(
     email: "admin@gmail.com",
+    password:              "1ouaAALtlWWSSGQt8sjuI3poNpJLrNOro",
+    password_confirmation: "1ouaAALtlWWSSGQt8sjuI3poNpJLrNOro")
+
+Teacher.create!(
+    email: "minhchautran.ltk@gmail.com",
     password:              "123456",
     password_confirmation: "123456")
 
-5.times do |n|    
-    email = "gv#{n+1}@gmail.com"
-    class_name = "n+1"
-    password = "222222"
-    Teacher.create!(
-        name: Faker::Name.name,
-        class_name: class_name,
-        email: email,
-        password:              password,
-        password_confirmation: password)
-end
-
-10.times do |n|
+36.times do |n|
     email = "hs#{n+1}@gmail.com"
     password = "111111"
     teacher_id = 1
