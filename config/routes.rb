@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pages/contact'
-  # get "/pages/:page", to: "pages#show"
+  get "/pages/:page", to: "pages#show"
 
   namespace :students do
     resources :rankings, only: :index
