@@ -1,30 +1,29 @@
-<section class="py-10 lg:py-20 bg-gray-800">
-<div class="container mx-auto px-4">
-  <div class="max-w-xl mx-auto">
-    <div class="mb-6 lg:mb-10 p-6 lg:p-12 bg-white shadow rounded bg-gray-900">
-      <div class="mb-6 ">
-        <h3 class="text-2xl font-bold text-center">Đăng nhập</h3>
+<section class="py-10 bg-gray-800">
+  <div class="container mx-auto px-4">
+    <div class="max-w-xl mx-auto">
+      <div class="mb-6 lg:mb-10 p-6 lg:p-12 bg-gray-900 shadow-md rounded">
+        <div class="mb-6">
+        <h3 class="text-2xl font-bold text-center text-pink-600">Đăng nhập</h3>
       </div>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
+          <div class="field text-pink-500 text-md">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-full text-xs bg-gray-50 outline-none", id:"exampleFormControlInput1" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"exampleFormControlInput1" %>
           </div>
-
-          <div class="field">
+          <br>
+          <div class="field text-pink-500 text-md">
             <label>Mật Khẩu</label>
             <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id:"exampleFormControlInput1" %>
           </div>
-
+          <br>
           <% if devise_mapping.rememberable? %>
-              <div class="field text-sm text-green-600">       
+              <div class="field text-sm text-pink-500">       
                 <%= f.check_box :remember_me %> Lưu mật khẩu
               </div>
             <% end %>
-
-          <div class="text-center">
-            <button type="submit" class="mb-4 w-full py-4 bg-green-600 hover:bg-green-700 rounded text-sm font-bold text-gray-50">Đăng nhập</button>
-            <a class="text-xs text-green-600 hover:underline" href="#">Quên mật khẩu?</a>
+          <div class="actions">
+            <button type="submit" class="mb-4 w-full py-4 bg-pink-600 hover:bg-pink-700 rounded text-sm font-bold text-gray-50">Đổi mật khẩu</button>
+            <a class="text-xs text-pink-500 hover:underline" href="#">Quên mật khẩu?</a>
         </div>
         <% end %>
       </div>

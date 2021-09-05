@@ -12,15 +12,16 @@
             <div class="h-full p-8 bg-white rounded shadow">
               <div class="mb-6 flex items-start">
                 <span class="mr-4 inline-block p-3 rounded-full bg-green-600">
-                  <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                  <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
                   </svg>
                 </span>
                 <h3 class="text-xl font-bold"><%= review.title %></h3>
               </div>
               <p class="text-gray-400">Ngày tạo: <%= review.created_at.strftime("%d-%m-%Y") %></p>
               <p class="text-gray-400">Học sinh: <%= review.student.name %></p>
-              <p><%= link_to 'Xem chi tiết', teachers_review_path(review) %></p>
+              <p><%= link_to 'Xem chi tiết', teachers_review_path(review) %> | <%= link_to 'Sửa', edit_teachers_review_path(review) %> | <%= link_to 'Xóa', teachers_review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %></p>
             </div>
           </div>
         <% end %> 

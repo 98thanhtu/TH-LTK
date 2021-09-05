@@ -17,6 +17,19 @@
       <label>Ảnh đại diện</label>
       <%= f.file_field :avatar, id: :teacher_avatar, class:"form-control" %>
     </div>
+
+    <div style="width:400px;margin:0 auto">
+      <% if @teacher.avatar? %>
+      <%= image_tag @teacher.avatar_url %>
+      <br>
+      <%= label_tag :remove_avatar do %>
+        <%= f.check_box :remove_avatar %>
+        <span>Xóa ảnh đại diện</span>
+      <%end%>
+    <% end %>
+    <br>
+    </div>
+
     <div class="field">
       <label>Số điện thoại</label>
       <%= f.text_field :phone, class:"form-control", id:"exampleFormControlInput1" %>
@@ -31,7 +44,7 @@
     </div>
     <div class="field">
       <label>Giới thiệu về bản thân</label>
-      <%= f.text_field :description, class:"form-control", id:"exampleFormControlInput1" %>
+      <%= f.text_area :description, class:"form-control", id:"exampleFormControlInput1" %>
     </div>
     <div class="actions">
       <button type="submit" class="btn btn-primary" style="font-size:14px">Đồng ý</button>

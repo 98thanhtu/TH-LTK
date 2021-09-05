@@ -1,23 +1,31 @@
-<h1>Students Notifications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Teacher</th>
-      <th>Title</th>
-      <th>Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notis.each do |noti| %>
-      <tr>
-        <td><%= noti.teacher_id %></td>
-        <td><%= noti.title %></td>
-        <td><%= noti.created_at.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Show', students_noti_path(noti) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<section style="margin-bottom:-100px">
+  <div class="py-20 bg-gray-900 radius-for-skewed">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 max-w-xl mx-auto text-center">
+        <h2 class="text-5xl font-bold text-white">Thông báo</h2>
+      </div>
+      <div class="-mx-4 -mb-8">
+        <% @notis.each do |noti| %>
+          <div class="w-full px-4 mb-8">
+            <div class="h-full p-8 bg-white rounded shadow">
+              <div class="mb-6 flex items-start">
+                <span class="mr-4 inline-block p-3 rounded-full bg-green-600">
+                  <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                  </svg>
+                </span>
+                <h3 class="text-xl font-bold"><%= noti.title %></h3>
+              </div>
+              <p class="text-gray-500">Ngày tạo: <%= noti.created_at.strftime("%d-%m-%Y") %></p>
+              <p class="text-gray-500">Giáo viên: <%= noti.teacher.name %></p>
+              <p><%= link_to 'Xem chi tiết', students_noti_path(noti) %></p>
+            </div>
+          </div>
+        <% end %>
+        <div style="margin: 0 auto">
+          <%= paginate @notis, theme: 'twitter-bootstrap-4' %>
+        </div> 
+      </div>
+    </div>
+  </div>
+</section>

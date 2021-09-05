@@ -18,10 +18,10 @@
               <p class="mb-6 text-base text-gray-500 leading-loose">Điểm tốt: <%= @student.good_mark %></p>
               <p class="mb-6 text-base text-gray-500 leading-loose">Điểm trừ: <%= @student.bad_mark %></p>
               <p class="mb-6 text-base text-gray-500 leading-loose"><%= @student.description %></p>
+              <button class="btn btn-primary"><%= link_to 'Đổi mật khẩu', edit_student_registration_path, style:"color:white" %></button>
+              <button class="btn btn-success"><%= link_to 'Cập nhật thông tin', edit_student_path, style:"color:white" %></button>
+              <button class="btn btn-danger"><%= link_to 'Trở về', root_path, style:"color:white" %></button>
             </div>
-          <p>
-            <%= link_to 'Trở về', root_path %>
-          </p>
           </div>
         </div>
       </div>
