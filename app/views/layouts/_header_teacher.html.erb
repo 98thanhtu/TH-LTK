@@ -1,7 +1,7 @@
 <section>
     <nav class="relative px-6 py-6 flex justify-between items-center bg-white">
       <a class="text-3xl font-bold leading-none" href="/">
-        <h1>LOGO<h1>
+        <h1>DOLACHAU<h1>
       </a>
       <div class="lg:hidden">
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -26,6 +26,11 @@
           <svg class="w-4 h-4 current-fill" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
           </svg>
+          <li><a class="text-sm text-green-900 font-bold" href="/teachers/students">Học Sinh</a></li>
+        <li class="text-gray-500">
+          <svg class="w-4 h-4 current-fill" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+          </svg>
         </li>
         <li><a class="text-sm text-green-900 font-bold" href="/teachers/rankings">BXH</a></li>
       </ul>
@@ -36,6 +41,7 @@
       <div id="myLinks">
         <%= link_to "Học tập", teachers_reviews_path %>
         <%= link_to "Thông báo", teachers_notis_path %>
+        <%= link_to "Học sinh", teachers_students_path %>
         <%= link_to "BXH", teachers_rankings_path %>
         <%= link_to "Tài Khoản", teacher_path %>
         <%= link_to "Đăng Xuất", destroy_teacher_session_path, method: :delete %>
