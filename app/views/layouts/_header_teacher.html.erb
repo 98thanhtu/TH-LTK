@@ -1,5 +1,5 @@
 <section>
-    <nav class="relative px-6 py-6 flex justify-between items-center bg-white">
+    <nav class="relative px-3 py-2 flex justify-between items-center bg-white">
       <a class="text-3xl font-bold leading-none" href="/">
         <h1>DOLACHAU<h1>
       </a>
@@ -38,7 +38,7 @@
       <%= link_to "Đăng Xuất", destroy_teacher_session_path, :class => 'hidden lg:inline-block py-2 px-6 bg-green-500 hover:bg-green-600 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200', method: :delete %>
     </nav>
     <div class="topnav">
-      <div id="myLinks">
+      <div id="myLinks" class="text-center bg-green-500">
         <%= link_to "Học tập", teachers_reviews_path %>
         <%= link_to "Thông báo", teachers_notis_path %>
         <%= link_to "Học sinh", teachers_students_path %>
