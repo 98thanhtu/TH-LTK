@@ -21,6 +21,7 @@ class Teachers::NotisController < ApplicationController
 
     def create
         @noti = Noti.new(noti_params)
+        @noti.teacher_id = current_teacher.id
         respond_to do |format|
             if @noti.save
                 format.html { redirect_to teachers_noti_path(@noti), notice: "Tạo thông báo thành công." }

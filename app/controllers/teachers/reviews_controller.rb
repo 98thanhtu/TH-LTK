@@ -24,7 +24,7 @@ class Teachers::ReviewsController < ApplicationController
         @review = Review.new(review_params)
         respond_to do |format|
             if @review.save
-                format.html { redirect_to teachers_review_path(@review), notice: "Tạo thông báo thành công." }
+                format.html { redirect_to teachers_review_path(@review), notice: "Tạo báo cáo thành công." }
             else
                 format.html { render :new, status: :unprocessable_entity }
             end
@@ -36,7 +36,7 @@ class Teachers::ReviewsController < ApplicationController
         @review = reviews.find(params[:id])
         respond_to do |format|
             if @review.update(review_params)
-                format.html { redirect_to teachers_review_path(@review), notice: "Cập nhật thông báo thành công." }
+                format.html { redirect_to teachers_review_path(@review), notice: "Cập nhật báo cáo thành công." }
             else
                 format.html { render :edit, status: :unprocessable_entity }
             end
@@ -47,7 +47,7 @@ class Teachers::ReviewsController < ApplicationController
         @review = Review.find(params[:id])
         @review.destroy
         respond_to do |format|
-            format.html { redirect_to teachers_reviews_url, notice: "Xóa thông báo thành công." }
+            format.html { redirect_to teachers_reviews_url, notice: "Xóa báo cáo thành công." }
         end
     end
 

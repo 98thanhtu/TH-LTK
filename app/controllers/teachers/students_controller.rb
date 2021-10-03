@@ -2,19 +2,22 @@ class Teachers::StudentsController < ApplicationController
     before_action :authenticate_teacher!
 
     def index
-        @students = current_teacher.students
+        @students = current_teacher.students.order(name: :ASC)
     end
 
     def show
-        @student = Student.find(params[:id])
+        student = current_teacher.students
+        @student = student.find(params[:id])
     end
     
     def edit
-        @student = Student.find(params[:id])
+        student = current_teacher.students
+        @student = student.find(params[:id])
     end
 
     def update
-        @student = Student.find(params[:id])
+        student = current_teacher.students
+        @student = student.find(params[:id])
         @student.update(student_params)
         @student.avg_mark = @student.good_mark * 2 - @student.bad_mark
         respond_to do |format|
