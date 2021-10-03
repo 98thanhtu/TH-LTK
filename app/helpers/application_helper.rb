@@ -1,6 +1,6 @@
 module ApplicationHelper
     def full_title(page_title)
-        base_title = "Trường Tiểu học Lý Thường Kiệt"
+        base_title = "GD Tiểu Học"
         if page_title.empty?
           base_title
         else
