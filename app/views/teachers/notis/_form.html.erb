@@ -30,7 +30,7 @@
           <%= form.text_area :content, style:"width:100%" %>
         </div>
         <button class="btn btn-primary" type="submit">Tạo thông báo</button>
-        <button class="btn btn-danger"><%= link_to 'Trở về', teachers_notis_path, style:"color:white" %></button>
+        <%= link_to 'Trở về', teachers_notis_path, style:"color:white", :class => "btn btn-danger" %>
       <% end %>
     </div>
   </div>
