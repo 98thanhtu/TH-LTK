@@ -8,7 +8,7 @@ class TeachersController < ApplicationController
     def update
       @teacher = current_teacher
       if @teacher.update(teacher_params)
-        redirect_to teacher_path, notice: 'Profile was successfully updated.'
+        redirect_to teacher_path, notice: 'Cập nhật thông tin thành công.'
       else
         render :edit
       end
@@ -21,6 +21,6 @@ class TeachersController < ApplicationController
     private
     
     def teacher_params
-      params.require(:teacher).permit(:phone, :gender, :avatar, :address, :description, :remove_avatar)
+      params.require(:teacher).permit(:name, :school_year, :class_name, :phone, :gender, :avatar, :address, :description, :remove_avatar)
     end
 end

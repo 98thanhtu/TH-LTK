@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
     def update
         @student = current_student
         if @student.update(student_params)
-            redirect_to student_path, notice: 'Profile was successfully updated.'
+            redirect_to student_path, notice: 'Cập nhật thông tin thành công.'
         else
             render :edit
         end
