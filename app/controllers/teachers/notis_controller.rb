@@ -2,7 +2,7 @@ class Teachers::NotisController < ApplicationController
     before_action :authenticate_teacher!
 
     def index
-        @notis = current_teacher.notis.order(created_at: :DESC).page(params[:page]).per(20)
+        @notis = current_teacher.notis.order(created_at: :DESC).page(params[:page]).per(50)
     end
 
     def show
@@ -48,7 +48,7 @@ class Teachers::NotisController < ApplicationController
         @noti = notis.find(params[:id])
         @noti.destroy
         respond_to do |format|
-            format.html { redirect_to teachers_notis_url, noti: "Xóa thông báo thành công." }
+            format.html { redirect_to teachers_notis_url, notice: "Xóa thông báo thành công." }
         end
     end
 

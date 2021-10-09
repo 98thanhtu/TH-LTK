@@ -2,6 +2,8 @@ class Teacher < ApplicationRecord
   mount_uploader :avatar, PictureUploader
   has_many :notis
   has_many :students
+  has_many :products
+  has_many :bookings
 
   validates :address, length: { maximum: 200 }
   validates :name, length: { maximum: 100 }

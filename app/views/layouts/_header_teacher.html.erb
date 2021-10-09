@@ -32,7 +32,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
           </svg>
         </li>
-        <li><a class="text-sm text-green-900 font-bold" href="/teachers/rankings">BXH</a></li>
+        <li><a class="text-sm text-green-900 font-bold" href="/teachers/products">Cửa hàng</a></li>
+        <li class="text-gray-500">
+          <svg class="w-4 h-4 current-fill" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+          </svg>
+        </li>
+        <li><a class="text-sm text-green-900 font-bold" href="/teachers/bookings">Bán hàng</a></li>
       </ul>
       <%= link_to "Tài Khoản", teacher_path, :class => 'hidden lg:inline-block py-2 px-6 bg-green-500 hover:bg-green-600 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200' %>
       <%= link_to "Đăng Xuất", destroy_teacher_session_path, :class => 'hidden lg:inline-block py-2 px-6 bg-green-500 hover:bg-green-600 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200', method: :delete %>
@@ -42,7 +48,8 @@
         <%= link_to "Học tập", teachers_reviews_path %>
         <%= link_to "Thông báo", teachers_notis_path %>
         <%= link_to "Học sinh", teachers_students_path %>
-        <%= link_to "BXH", teachers_rankings_path %>
+        <%= link_to "Cửa hàng", teachers_products_path %>
+        <%= link_to "Bán hàng", teachers_bookings_path %>
         <%= link_to "Tài Khoản", teacher_path %>
         <%= link_to "Đăng Xuất", destroy_teacher_session_path, method: :delete %>
       </div>

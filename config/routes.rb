@@ -4,16 +4,32 @@ Rails.application.routes.draw do
   get "/pages/:page", to: "pages#show"
 
   namespace :students do
-    resources :rankings, only: :index
+    resources :rankings, only: %w[index]
     resources :notis, only: %w[index show]
     resources :reviews, only: %w[index show]
+    resources :bookings, only: %w[index show edit update destroy] do
+      collection do
+        get :historical_bookings
+      end
+    end
+    resources :stores, only: %w[index show edit]
   end
   
   namespace :teachers do
+    resources :bookings, only: %w[index show update edit] do
+      collection do
+        get :confirmed_bookings
+      end
+      member do
+        get :complete_booking        
+        get :confirm_booking
+      end
+    end
+    resources :products
     resources :notis
     resources :reviews
-    resources :students
-    resources :rankings, only: %w[index updates]
+    resources :students, only: %w[index show update edit update]
+    resources :rankings, only: %w[index update]
   end
 
   resource :teacher, only: %w[edit update show]

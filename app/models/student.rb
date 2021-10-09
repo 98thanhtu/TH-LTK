@@ -2,6 +2,7 @@ class Student < ApplicationRecord
   mount_uploader :avatar, PictureUploader
   belongs_to :teacher
   has_many :reviews
+  has_many :bookings
   
   validates :teacher_id, presence: true
   validates :address, length: { maximum: 200 }

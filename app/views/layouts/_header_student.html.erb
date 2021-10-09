@@ -27,7 +27,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
           </svg>
         </li>
-        <li><a class="text-sm text-green-900 font-bold" href="/students/rankings">BXH</a></li>
+        <li><a class="text-sm text-green-900 font-bold" href="/students/stores">Cửa Hàng</a></li>
+        <li class="text-gray-500">
+          <svg class="w-4 h-4 current-fill" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+          </svg>
+        </li>
+        <li><a class="text-sm text-green-900 font-bold" href="/students/bookings">Mua Hàng</a></li>
       </ul>
       <%= link_to "Tài Khoản", student_path, :class => 'hidden lg:inline-block py-2 px-6 bg-green-500 hover:bg-green-600 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200' %>
       <%= link_to "Đăng Xuất", destroy_student_session_path, :class => 'hidden lg:inline-block py-2 px-6 bg-green-500 hover:bg-green-600 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200', method: :delete %>
@@ -36,7 +42,8 @@
       <div id="myLinks" class="text-center bg-green-500">
         <%= link_to "Học tập", students_reviews_path %>
         <%= link_to "Thông báo", students_notis_path %>
-        <%= link_to "BXH", students_rankings_path %>
+        <%= link_to "Cửa Hàng", students_stores_path %>
+        <%= link_to "Mua Hàng", students_bookings_path %>
         <%= link_to "Tài Khoản", student_path %>
         <%= link_to "Đăng Xuất", destroy_student_session_path, method: :delete %>
       </div>

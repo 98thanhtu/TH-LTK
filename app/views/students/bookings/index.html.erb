@@ -1,0 +1,49 @@
+<% provide(:title, "Mua Hàng") %>
+<section style="margin-bottom:-100px">
+  <div class="pb-20 pt-12 bg-gray-900 radius-for-skewed">
+    <div class="container mx-auto px-4">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active text-base" aria-current="page" href="#">Đang mua</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-base text-white" href="/students/bookings/historical_bookings">Lịch sử</a>
+        </li>
+      </ul>
+      <div class="mb-16 mt-4 max-w-xl mx-auto text-center">
+        <h3 class="text-5xl font-bold text-white">Hàng đang chờ duyệt</h3>
+      </div>
+      <div class="flex flex-wrap -mx-4 -mb-8">
+        <% @bookings.each do |booking| %>
+          <div class="w-full lg:w-1/2 px-4 mb-8">
+            <div class="h-full p-8 pb-2 bg-white rounded shadow">
+              <div class="mb-6 flex items-start">
+                <% if booking.status == 'new_booking' %>
+                  <span class="mr-4 inline-block p-3 rounded-full bg-yellow-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-white bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                </span>
+                <% else %>
+                    <span class="mr-4 inline-block p-3 rounded-full bg-green-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-white bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                </span>
+                <% end %>
+                <h3 class="text-xl font-bold"><%= booking.product.name %></h3>
+              </div>
+              <p class="text-gray-500 text-base">	&#9679; Ngày mua: <%= booking.created_at.strftime("%d-%m-%Y") %></p>
+              <% if booking.status == 'new_booking' %>
+                <p class="text-gray-500 text-base">	&#9679; Trạng thái: <span class="text-yellow-500">Chưa được duyệt<span></p>
+              <% else %>
+                <p class="text-gray-500 text-base">	&#9679; Trạng thái: <span class="text-green-600">Đã được duyệt</span></p>
+              <% end %>
+              <p class="text-center"><%= link_to 'Hủy mua hàng', students_booking_path(booking), method: :delete, data: { confirm: 'Bạn có chắc muốn hủy mua sản phẩm này không?' }, :class => "btn btn-danger" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
