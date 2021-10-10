@@ -3,7 +3,7 @@ class Teachers::ProductsController < ApplicationController
 
   def index
     @products = current_teacher.products
-    @products = @products.order(created_at: :DESC).page(params[:page]).per(20)
+    @products = @products.order(created_at: :DESC).page(params[:page]).per(50)
   end
 
   def show
@@ -54,6 +54,6 @@ class Teachers::ProductsController < ApplicationController
   private
 
   def product_params
-      params.require(:product).permit(:id, :name, :price, :description, :image, :remove_image)
+      params.require(:product).permit(:id, :name, :price, :description, :image, :quantity, :remove_image)
   end
 end

@@ -2,11 +2,12 @@ class Teachers::BookingsController < ApplicationController
   before_action :authenticate_teacher!
 
   def index
-    @bookings = current_teacher.bookings.new_booking.order(created_at: :ASC).page(params[:page]).per(20)
+    binding.pry
+    @bookings = current_teacher.bookings.new_booking.order(created_at: :ASC).page(params[:page]).per(50)
   end
 
   def confirmed_bookings
-    @bookings = current_teacher.bookings.confirmed.order(created_at: :ASC).page(params[:page]).per(20)
+    @bookings = current_teacher.bookings.confirmed.order(created_at: :ASC).page(params[:page]).per(50)
   end
 
   def confirm_booking

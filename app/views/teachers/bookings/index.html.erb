@@ -25,9 +25,10 @@
                 </span>
                 <h3 class="text-xl font-bold"><%= booking.product.name %></h3>
               </div>
-              <p class="text-gray-500 text-base">	&#9679; Người mua: <span class="text-gray-900 font-weight-bold"><%= booking.student.name %><span></p>
-              <p class="text-gray-500 text-base">	&#9679; Ngày mua: <%= booking.created_at.strftime("%d-%m-%Y") %></p>
-              <p class="text-gray-500 text-base">	&#9679; Trạng thái: Chưa được duyệt</p>
+              <p class="text-gray-600 text-base">	&#9679; Người mua: <span class="text-gray-900 font-weight-bold"><%= booking.student.name %><span></p>
+              <p class="text-gray-600 text-base">	&#9679; Ngày mua: <%= booking.created_at.strftime("%d-%m-%Y") %></p>
+              <p class="text-gray-600 text-base">	&#9679; Giá tiền: <%= booking.product.price %> <span class="text-red-500">DOLACHAU</span></p>
+              <p class="text-gray-600 text-base">	&#9679; Trạng thái: Chưa được duyệt</p>
               <p class="text-center font-weight-bold">
                 <%= link_to 'Xác nhận', confirm_booking_teachers_booking_path(booking), data: { confirm: 'Bạn có chắc muốn xác nhận không?' }, :class => "btn btn-success" %>
                 <%= link_to 'Từ chối', edit_teachers_booking_path(booking), :class => "btn btn-danger" %>

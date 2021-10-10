@@ -18,7 +18,12 @@
                 <br>
                 <h3 class="text-xl font-bold"><%= product.name %></h3>
               </div>
-              <p class="text-gray-500">Giá tiền: <%= product.price %> <span class="text-red-500">DOLACHAU</span></p>
+              <p class="text-gray-600">Giá tiền: <%= product.price %> <span class="text-red-500">DOLACHAU</span></p>
+              <% if product.quantity <= 0%>
+                <p class="text-gray-600">Sản phẩm này đã hết hàng</p>
+              <% else %>
+                <p class="text-gray-600">Số lượng: <%= product.quantity %></p>
+              <% end %>
               <p class="text-green-500">
                 <%= link_to 'Xem chi tiết', teachers_product_path(product) %> | <%= link_to 'Sửa', edit_teachers_product_path(product) %> | <%= link_to 'Xóa', teachers_product_path(product), method: :delete, data: { confirm: 'Bạn có chắc muốn xóa không?' } %>
               </p>

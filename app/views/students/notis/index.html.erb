@@ -18,7 +18,7 @@
                 <h3 class="text-xl font-bold"><%= noti.title %></h3>
               </div>
               <p class="text-gray-500">Ngày tạo: <%= noti.created_at.strftime("%d-%m-%Y") %></p>
-              <p class="text-gray-500">Giáo viên: <%= noti.teacher.name %></p>
+              <p class="text-gray-800 text-sm">Giáo viên: <%= noti.teacher.name %></p>
               <p><%= link_to 'Xem chi tiết', students_noti_path(noti) %></p>
             </div>
           </div>

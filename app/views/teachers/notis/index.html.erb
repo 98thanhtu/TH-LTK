@@ -19,8 +19,8 @@
                 </span>
                 <h3 class="text-xl font-bold"><%= noti.title %></h3>
               </div>
-              <p class="text-gray-500">Ngày tạo: <%= noti.created_at.strftime("%d-%m-%Y") %></p>
-              <p class="text-gray-500">Lớp: <%= noti.teacher.full_class_name %></p>
+              <p class="text-gray-600">Ngày tạo: <%= noti.created_at.strftime("%d-%m-%Y") %></p>
+              <p class="text-gray-800 text-sm">Lớp: <%= noti.teacher.full_class_name %></p>
               <p><%= link_to 'Xem chi tiết', teachers_noti_path(noti) %> | <%= link_to 'Sửa', edit_teachers_noti_path(noti) %> | <%= link_to 'Xóa', teachers_noti_path(noti), method: :delete, data: { confirm: 'Bạn có chắc muốn xóa không?' } %></p>
             </div>
           </div>

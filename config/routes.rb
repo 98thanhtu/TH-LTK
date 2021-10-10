@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/pages/:page", to: "pages#show"
 
   namespace :students do
-    resources :rankings, only: %w[index]
+    # resources :rankings, only: %w[index]
     resources :notis, only: %w[index show]
     resources :reviews, only: %w[index show]
     resources :bookings, only: %w[index show edit update destroy] do

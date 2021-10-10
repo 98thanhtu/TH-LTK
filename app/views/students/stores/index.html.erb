@@ -18,7 +18,12 @@
                 <br>
                 <h3 class="text-xl font-bold"><%= product.name %></h3>
               </div>
-              <p class="text-gray-500">Giá tiền: <%= product.price %> <span class="text-red-500">DOLACHAU</span></p>
+              <p class="text-gray-700"><span class="text-red-500">&#9679;</span> Giá tiền: <%= product.price %> <span class="text-red-500">DOLACHAU</span></p>
+              <% if product.quantity <= 0 %>
+                <p class="text-gray-700"><span class="text-red-500">&#9679;</span> Sản phẩm này đã hết hàng</p>
+              <% else %>
+                <p class="text-gray-700"><span class="text-red-500">&#9679;</span> Số lượng: <%= product.quantity %></p>
+              <% end %>
               <p class="text-green-500">
                 <%= link_to 'Xem chi tiết', students_store_path(product) %>
               </p>

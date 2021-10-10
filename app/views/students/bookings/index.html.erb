@@ -33,11 +33,12 @@
                 <% end %>
                 <h3 class="text-xl font-bold"><%= booking.product.name %></h3>
               </div>
-              <p class="text-gray-500 text-base">	&#9679; Ngày mua: <%= booking.created_at.strftime("%d-%m-%Y") %></p>
+              <p class="text-gray-600 text-base">	&#9679; Ngày mua: <%= booking.created_at.strftime("%d-%m-%Y") %></p>
+              <p class="text-gray-600 text-base">	&#9679; Giá tiền: <%= booking.product.price %> <span class="text-red-500">DOLACHAU</span></p>
               <% if booking.status == 'new_booking' %>
-                <p class="text-gray-500 text-base">	&#9679; Trạng thái: <span class="text-yellow-500">Chưa được duyệt<span></p>
+                <p class="text-gray-600 text-base">	&#9679; Trạng thái: <span class="text-yellow-500">Chưa được duyệt<span></p>
               <% else %>
-                <p class="text-gray-500 text-base">	&#9679; Trạng thái: <span class="text-green-600">Đã được duyệt</span></p>
+                <p class="text-gray-600 text-base">	&#9679; Trạng thái: <span class="text-green-600">Đã được duyệt</span></p>
               <% end %>
               <% if booking.status == 'new_booking' %>
                 <p class="text-center"><%= link_to 'Hủy mua hàng', students_booking_path(booking), method: :delete, data: { confirm: 'Bạn có chắc muốn hủy mua sản phẩm này không?' }, :class => "btn btn-danger" %></p>
