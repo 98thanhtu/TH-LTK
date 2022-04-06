@@ -2,7 +2,7 @@ class Students::BookingsController < ApplicationController
   before_action :authenticate_student!
 
   def index
-    @bookings = current_student.bookings.where(status: "new_booking").or(current_student.bookings.where(status: "confirmed")).order(updated_at: :DESC)
+    @bookings = current_student.bookings.where(status: ["new_booking", "confirmed"]).order(updated_at: :DESC)
   end
 
   def show
@@ -11,14 +11,14 @@ class Students::BookingsController < ApplicationController
   end
 
   def historical_bookings
-    @historical_bookings = current_student.bookings.where(status: "canceled").or(current_student.bookings.where(status: "completed")).order(updated_at: :DESC).page(params[:page]).per(50)
+    @historical_bookings = current_student.bookings.where(status: ["canceled", "completed"]).order(updated_at: :DESC).page(params[:page]).per(50)
   end
 
   def destroy
     bookings = current_student.bookings
-    @booking = bookings.find_by(id: params[:id])
-    if @booking.destroy
-      current_student.avg_mark += @booking.product.price
+    booking = bookings.find_by(id: params[:id])
+    if booking.destroy
+      current_student.avg_mark += booking.price
       current_student.save
       respond_to do |format|
         format.html { redirect_to students_bookings_url, notice: "Hủy mua hàng thành công." }

@@ -10,9 +10,9 @@ class Teachers::BookingsController < ApplicationController
   end
 
   def confirm_booking
-    @booking = current_teacher.bookings.find_by(id: params[:id])
-    @booking.status = 2
-    if @booking.save
+    booking = current_teacher.bookings.find_by(id: params[:id])
+    booking.status = 2
+    if booking.save
       redirect_to teachers_bookings_url
     end
   end
@@ -24,12 +24,12 @@ class Teachers::BookingsController < ApplicationController
 
   def update
     bookings = current_teacher.bookings
-    @booking = bookings.find_by(id: params[:id])
-    crt_student = @booking.student
-    crt_student.avg_mark += @booking.product.price
-    @booking.status = 4
+    booking = bookings.find_by(id: params[:id])
+    crt_student = booking.student
+    crt_student.avg_mark += booking.price
+    booking.status = 4
     respond_to do |format|
-      if @booking.update(booking_params)
+      if booking.update(booking_params)
         crt_student.save
         format.html { redirect_to teachers_bookings_path, notice: "Hủy yêu cầu mua hàng thành công." }
       else
@@ -39,9 +39,9 @@ class Teachers::BookingsController < ApplicationController
   end
 
   def complete_booking
-    @booking = current_teacher.bookings.find_by(id: params[:id])
-    @booking.status = 3
-    if @booking.save
+    booking = current_teacher.bookings.find_by(id: params[:id])
+    booking.status = 3
+    if booking.save
       redirect_to confirmed_bookings_teachers_bookings_path
     end
   end

@@ -3,7 +3,6 @@ class Students::StoresController < ApplicationController
 
   def index
     @products = my_teacher.products.order(created_at: :DESC).page(params[:page]).per(50)
-    @booking = Booking.new
   end
 
   def show
@@ -12,18 +11,19 @@ class Students::StoresController < ApplicationController
   end
 
   def edit
-    @products = my_teacher.products
-    @product = @products.find(params[:id])
-    @booking = Booking.new
-    @booking.student_id = current_student.id
-    @booking.teacher_id = my_teacher.id
-    @booking.product_id = @product.id
-    if @product.quantity >  0
-      if current_student.avg_mark > @product.price
-        if @booking.save
-          @product.quantity -= 1
-          @product.save
-          current_student.avg_mark -= @product.price
+    product = my_teacher.products.find(params[:id])
+    booking = Booking.new(
+      student_id: current_student.id,
+      teacher_id: my_teacher.id,
+      product_id: product.id,
+      price: product.price
+    )
+    if product.quantity >  0
+      if current_student.avg_mark >= product.price
+        if booking.save
+          product.quantity -= 1
+          product.save
+          current_student.avg_mark -= booking.price
           current_student.save
           redirect_to students_bookings_path
         end
