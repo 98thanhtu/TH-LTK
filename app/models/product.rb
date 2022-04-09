@@ -7,5 +7,5 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
   validates :quantity, presence: true
-  validates :image, file_size: { less_than: 1.megabytes }
+  validates :image, file_size: { less_than: 3.megabytes }
 end

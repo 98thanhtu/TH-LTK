@@ -13,12 +13,6 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <label>Chọn ảnh đại diện</label>
-      <%= f.file_field :avatar, id: :student_avatar, class:"form-control" %>
-      <br>
-    </div>
-
     <div style="width:400px;margin:0 auto">
       <% if @student.avatar? %>
       <%= image_tag @student.avatar_url %>
