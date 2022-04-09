@@ -15,9 +15,11 @@ class Students::BookingsController < ApplicationController
   end
 
   def destroy
-    bookings = current_student.bookings
-    booking = bookings.find_by(id: params[:id])
+    booking = current_student.bookings.find_by(id: params[:id])
+    product = Product.find_by(id: booking.product_id)
     if booking.destroy
+      product.quantity += 1
+      product.save
       current_student.avg_mark += booking.price
       current_student.save
       respond_to do |format|
